@@ -20,35 +20,35 @@ function ManageTypes() {
     window.location.reload();
   };
 
-  const handleDelete = (id) => {
-    deleteType(id);
-    window.location.reload();
-  };
-
   return (
-    <div className="types">
+    <div className="grid grid-cols-4 btn-in text-white">
       {types.map((type) => (
         <div key={type.id}>
-          <button type="button" onClick={() => handleDelete(type.id)}>
-            x
-          </button>{" "}
-          <EditTypes type={type} />
           ID Type {type.id} <br />
           Nom: {type.name}
+          <br />
+          <EditTypes type={type} />
         </div>
       ))}
-      <button type="button" onClick={() => setFormVisible(!formVisible)}>
-        Ajouter
+      <button
+        className="btn rounded-lg"
+        type="button"
+        onClick={() => setFormVisible(!formVisible)}
+      >
+        <div className="btn-in rounded-lg">Ajouter</div>
       </button>
       {formVisible && (
-        <form onSubmit={handleAdd}>
+        <form className="text-white" onSubmit={handleAdd}>
           Type name:{" "}
           <input
+            className="border text-center rounded-lg border-d-purple text-black"
             type="text"
             value={typesName}
             onChange={(e) => setTypesName(e.target.value)}
           />
-          <button type="submit">✓</button>
+          <button className="btn rounded-lg" type="submit">
+            <div className="btn-in">✓</div>
+          </button>
         </form>
       )}
     </div>

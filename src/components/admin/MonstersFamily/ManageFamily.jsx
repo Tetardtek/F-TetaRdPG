@@ -21,10 +21,10 @@ function ManageFamily() {
   };
 
   return (
-    <div className="grid grid-cols-4">
+    <div className="grid grid-cols-4 btn-in">
       {family.map((familyItem) => (
         <div
-          className="flex items-center justify-center flex-col border rounded-lg border-d-purple"
+          className="text-white flex items-center justify-center flex-col border rounded-lg border-d-purple"
           key={familyItem.id}
         >
           ID Family {familyItem.id} <br />
@@ -34,21 +34,24 @@ function ManageFamily() {
       ))}
       <div className="flex items-center justify-center flex-col border rounded-lg border-d-purple">
         <button
-          className="btn"
+          className="btn rounded-lg"
           type="button"
           onClick={() => setFormVisible(!formVisible)}
         >
           <span className="btn-in">Ajouter</span>
         </button>
         {formVisible && (
-          <form onSubmit={handleAdd}>
+          <form className="text-white" onSubmit={handleAdd}>
             Family name:{" "}
             <input
+              className="border text-center rounded-lg border-d-purple text-black"
               type="text"
               value={familyName}
               onChange={(e) => setFamilyName(e.target.value)}
             />
-            <button className="btn" type="submit"><span className="btn-in">✓</span></button>
+            <button className="btn" type="submit">
+              <span className="btn-in">✓</span>
+            </button>
           </form>
         )}
       </div>

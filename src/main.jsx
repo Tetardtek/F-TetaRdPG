@@ -138,7 +138,7 @@ function Main() {
           }
         />
         <Route
-          path="/create-player"
+          path="/game/create-player"
           element={
             <PrivateRoute
               element={<CreatePlayer />}
@@ -148,7 +148,7 @@ function Main() {
           }
         />
         <Route
-          path="/game"
+          path="/game/begin"
           element={
             <PrivateRoute
               element={<Game />}

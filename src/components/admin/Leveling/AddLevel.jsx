@@ -20,17 +20,17 @@ function AddLevel() {
   };
 
   return (
-    <div>
+    <div className="btn-in rounded-lg">
       <button
-        className="btn"
+        className="btn rounded-lg"
         type="button"
         onClick={() => setFormVisible(!formVisible)}
       >
-        <div className="btn-in">Ajouter</div>
+        <div className="btn-in rounded-lg">Ajouter</div>
       </button>
       {formVisible && (
-        <form className="" onSubmit={handleAdd}>
-          <div className="relative flex items-center max-w-[8rem]">
+        <form className="btn-in rounded-lg" onSubmit={handleAdd}>
+          <div className="relative flex items-center max-w-[16rem]">
             <button
               type="button"
               id="decrement-button"
@@ -91,8 +91,8 @@ function AddLevel() {
           >
             Veuillez sélectionner la quantité d'expérience souhaité
           </p>
-          <button type="submit" className="btn mt-4">
-            <div className="btn-in">✓</div>
+          <button type="submit" className="btn rounded-lg mt-4">
+            <div className="btn-in rounded-lg">✓</div>
           </button>
         </form>
       )}

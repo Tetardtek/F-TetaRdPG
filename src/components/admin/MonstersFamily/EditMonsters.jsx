@@ -35,51 +35,68 @@ function EditMonsters({ monster }) {
 
   return (
     <>
-      <button className="btn" type="button" onClick={() => handleDelete(monster.id)}>
+      <button
+        className="btn rounded-lg"
+        type="button"
+        onClick={() => handleDelete(monster.id)}
+      >
         {" "}
-        <span className="btn-in">Delete</span>{" "}
+        <span className="btn-in rounded-lg">Delete</span>{" "}
       </button>
-      <button className="btn" type="button" onClick={() => setFormVisible(!formVisible)}>
-      <span className="btn-in">Edition</span>
+      <button
+        className="btn rounded-lg"
+        type="button"
+        onClick={() => setFormVisible(!formVisible)}
+      >
+        <span className="btn-in rounded-lg">Edition</span>
       </button>
       {formVisible && (
         <form onSubmit={handleEdit}>
           <input
+            className="text-black text-center"
             type="number"
             value={monsterFamily}
             onChange={(e) => setMonsterFamily(e.target.value)}
           />
           <input
+            className="text-black text-center"
             type="text"
             value={monsterName}
             onChange={(e) => setMonsterName(e.target.value)}
           />
           <input
+            className="text-black text-center"
             type="number"
             value={monsterLife}
             onChange={(e) => setMonsterLife(e.target.value)}
           />
           <input
+            className="text-black text-center"
             type="number"
             value={monsterAttack}
             onChange={(e) => setMonsterAttack(e.target.value)}
           />
           <input
+            className="text-black text-center"
             type="number"
             value={monsterDefense}
             onChange={(e) => setMonsterDefense(e.target.value)}
           />
           <input
+            className="text-black text-center"
             type="number"
             value={monsterXp}
             onChange={(e) => setMonsterXp(e.target.value)}
           />
           <input
+            className="text-black text-center"
             type="number"
             value={monsterGold}
             onChange={(e) => setMonsterGold(e.target.value)}
           />
-          <button type="submit">Valider</button>
+          <button className="btn rounded-lg" type="submit">
+            <span className="btn-in rounded-lg">Valider</span>
+          </button>
         </form>
       )}
     </>

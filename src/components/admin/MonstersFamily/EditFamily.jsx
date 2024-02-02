@@ -22,28 +22,31 @@ function EditFamily({ family }) {
   return (
     <>
       <button
-        className="btn"
+        className="btn rounded-lg"
         type="button"
         onClick={() => handleDelete(family.id)}
-        >
-        <span className="btn-in">x</span>
+      >
+        <span className="btn-in rounded-lg">x</span>
       </button>{" "}
       <button
-        className="btn"
+        className="btn rounded-lg"
         type="button"
         onClick={() => setFormVisible(!formVisible)}
-        >
-        <span className="btn-in">Edition</span>
+      >
+        <span className="btn-in rounded-lg">Edition</span>
       </button>
       {formVisible && (
         <form onSubmit={handleEdit}>
           Nouveau nom:{" "}
           <input
+            className="border rounded-lg text-center border-d-purple text-black"
             type="text"
             value={familyName}
             onChange={(e) => setFamilyName(e.target.value)}
           />
-          <button className="btn"type="submit"><span className="btn-in">✓</span></button>
+          <button className="btn rounded-lg" type="submit">
+            <span className="btn-in rounded-lg">✓</span>
+          </button>
         </form>
       )}
     </>

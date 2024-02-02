@@ -17,15 +17,25 @@ export default function App() {
     <>
       <NavBar />
       {!isLoggedIn && (
-        <div className="">
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
+        <div className="text-2xl font-montserrat font-semibold flex justify-around">
+          <Link className="cursor-default hover:text-d-purple" to="/login">
+            Login
+          </Link>
+          <Link className="cursor-default hover:text-d-purple" to="/register">
+            Register
+          </Link>
         </div>
       )}
       {isLoggedIn && (
-        <div className="game-container">
-          <Link to="/game">Continue vers le Jeu</Link>
-          <Player />
+        <div>
+          <div className="text-2xl font-montserrat font-semibold flex justify-around hover:text-d-purple">
+            <Link className="cursor-default" to="/game/begin">
+              Continue vers le jeu
+            </Link>
+          </div>
+          <div className="btn">
+            <Player />
+          </div>
         </div>
       )}
     </>

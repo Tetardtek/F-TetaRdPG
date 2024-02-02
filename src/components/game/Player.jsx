@@ -24,7 +24,7 @@ function Player() {
   }
 
   return (
-    <div className="player-card">
+    <div className="btn-in text-xl">
       <p>ID Joueur: {player.id}</p>
       <p>Nom: {player.nickname}</p>
       <p>Type: {type ? type.name : "Unknow"}</p>

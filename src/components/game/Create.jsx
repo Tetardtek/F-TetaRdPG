@@ -21,7 +21,13 @@ function Create() {
         });
       })
       .then(() => {
-        navigate("/game");
+        navigate("/game/begin");
+      })
+      .catch((error) => {
+        console.log(
+          "Une erreur s'est produite lors de la création du joueur ou de la modification de l'utilisateur",
+          error
+        );
       });
   };
 

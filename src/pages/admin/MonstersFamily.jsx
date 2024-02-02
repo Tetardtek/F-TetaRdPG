@@ -11,27 +11,33 @@ function MonstersFamily() {
   return (
     <>
       <NavBar />
-      <a className="gap-8 text-3xl list-none flex flex-wrap" href="/admin">Admin Home</a>
-      <h1 className="text-center text-3xl">Monstres & Familles</h1>
+      <div className="btn-in font-montserrat font-semibold flex flex-col text-center text-3xl">
+        <a className="text-white hover:text-d-purple" href="/admin">
+          Admin Home
+        </a>
+        <h1 className="text-white">Monstres & Familles</h1>
+      </div>
       <ManageFamily />
       <div className="monsters-family">
-        <ul className="gap-8 text-2xl list-none flex flex-wrap">
+        <ul className="btn-in grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-7 gap-4">
           {monsters.map((monster) => {
             const familyName = family.find(
               (familyItem) => familyItem.id === monster.family_id
             );
             return (
-              <li className="flex flex-col items-center w-80 border border-d-purple rounded-lg hover:text-d-purple hover:cursor-pointer" key={monster.id}>
-                <p>ID Monstre: {monster.id}</p>
-                <p>Famille: {familyName ? familyName.name : "Unknown"}</p>
-                <p>Nom: {monster.name}</p>
-                <p>Vie: {monster.life}</p>
-                <p>Attaque: {monster.attack}</p>
-                <p>Defence: {monster.defense}</p>
-                <p>Xp: {monster.xp_give}</p>
-                <p>Or: {monster.golds_give}</p>
-                <EditMonsters monster={monster} />
-              </li>
+              <div className="btn rounded-lg">
+                <li className="btn-in text-xl rounded-lg" key={monster.id}>
+                  <p>ID Monstre: {monster.id}</p>
+                  <p>Famille: {familyName ? familyName.name : "Unknown"}</p>
+                  <p>Nom: {monster.name}</p>
+                  <p>Vie: {monster.life}</p>
+                  <p>Attaque: {monster.attack}</p>
+                  <p>Defence: {monster.defense}</p>
+                  <p>Xp: {monster.xp_give}</p>
+                  <p>Or: {monster.golds_give}</p>
+                  <EditMonsters monster={monster} />
+                </li>
+              </div>
             );
           })}
         </ul>

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { GameContext } from "../../../context/GameContext";
 
 function EditTypes({ type }) {
-  const { editType } = useContext(GameContext);
+  const { editType, deleteType } = useContext(GameContext);
 
   const [typeName, setTypeName] = useState(type.name);
   const [formVisible, setFormVisible] = useState(false);
@@ -15,8 +15,20 @@ function EditTypes({ type }) {
     window.location.reload();
   };
 
+  const handleDelete = (id) => {
+    deleteType(id);
+    window.location.reload();
+  };
+
   return (
     <>
+      <button
+        className="btn rounded-lg"
+        type="button"
+        onClick={() => handleDelete(type.id)}
+      >
+        <div className="btn-in rounded-lg">x</div>
+      </button>{" "}
       <button type="button" onClick={() => setFormVisible(!formVisible)}>
         Edition
       </button>
