@@ -14,7 +14,7 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    <div>
       <NavBar />
       {!isLoggedIn && (
         <div className="text-2xl font-montserrat font-semibold flex justify-around">
@@ -33,11 +33,11 @@ export default function App() {
               Continue vers le jeu
             </Link>
           </div>
-          <div className="btn">
+          <div className="btn rounded-lg">
             <Player />
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

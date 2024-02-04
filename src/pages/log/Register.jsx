@@ -148,119 +148,140 @@ function Register() {
   return (
     <>
       <NavBar />
-      <div className="page-container">
-        <div className="auth-form">
-          <h2>Signup</h2>
-          {errors.general && <p className="error-message">{errors.general}</p>}
-          <form onSubmit={handleSignup} className="form-container">
-            <label>
-              Firstname:
-              <input
-                type="text"
-                name="firstname"
-                value={user.firstname}
-                onChange={handleInputChange}
-              />
-            </label>
-            {errors.firstname && (
-              <p className="error-message">{errors.firstname}</p>
+      <div className="flex justify-center items-center text-center">
+        <div className="page-container btn mt-8 rounded-lg justify-center items-center inline-block">
+          <div className="auth-form btn-in rounded-lg">
+            <h2 className="text-xl">Signup</h2>
+            {errors.general && (
+              <p className="error-message">{errors.general}</p>
             )}
-
-            <label>
-              Lastname:
-              <input
-                type="text"
-                name="lastname"
-                value={user.lastname}
-                onChange={handleInputChange}
-              />
-            </label>
-            {errors.lastname && (
-              <p className="error-message">{errors.lastname}</p>
-            )}
-
-            <label>
-              Nickname:
-              <input
-                type="text"
-                name="nickname"
-                value={user.nickname}
-                onChange={handleInputChange}
-              />
-            </label>
-            {errors.nickname && (
-              <p className="error-message">{errors.nickname}</p>
-            )}
-
-            <label>
-              Mail:
-              <input
-                type="email"
-                name="mail"
-                value={user.mail}
-                onChange={handleInputChange}
-                className={errors.email && "error-input"}
-              />
-            </label>
-            {errors.email && <p className="error-message">{errors.email}</p>}
-
-            <label>
-              Birthdate:
-              <input
-                type="date"
-                name="birthdate"
-                value={user.birthdate}
-                onChange={handleInputChange}
-              />
-            </label>
-            {errors.birthdate && (
-              <p className="error-message">{errors.birthdate}</p>
-            )}
-
-            <label>
-              Password:
-              <input
-                type="password"
-                name="password"
-                value={user.password}
-                onChange={handleInputChange}
-                className={errors.password && "error-input"}
-              />
-              {errors.password && (
-                <p className="error-message">{errors.password}</p>
+            <form
+              onSubmit={handleSignup}
+              className="form-container flex flex-col gap-4"
+            >
+              <label>
+                Firstname:
+                <input
+                  className="text-center text-white btn-in rounded-lg"
+                  type="text"
+                  name="firstname"
+                  value={user.firstname}
+                  onChange={handleInputChange}
+                />
+              </label>
+              {errors.firstname && (
+                <p className="error-message">{errors.firstname}</p>
               )}
-            </label>
 
-            <label>
-              Confirm Password:
-              <input
-                type="password"
-                name="confirmPassword"
-                value={user.confirmPassword}
-                onChange={handleInputChange}
-                className={errors.confirmPassword && "error-input"}
-              />
-            </label>
-            {errors.confirmPassword && (
-              <p className="error-message">{errors.confirmPassword}</p>
-            )}
+              <label>
+                Lastname:
+                <input
+                  className="text-center text-white btn-in rounded-lg"
+                  type="text"
+                  name="lastname"
+                  value={user.lastname}
+                  onChange={handleInputChange}
+                />
+              </label>
+              {errors.lastname && (
+                <p className="error-message">{errors.lastname}</p>
+              )}
 
-            <button type="submit">Signup</button>
-            {showSignupPopup && (
-              <Popup
-                onClose={() => setShowSignupPopup(false)}
-                onConfirm={() => navigate("/login")}
-              >
-                <p>Your account has been successfully created</p>
-              </Popup>
-            )}
-          </form>
-          <p>
-            Already have an account?{" "}
-            <Link to="/login" className="login-link">
-              Login here
+              <label>
+                Nickname:
+                <input
+                  className="text-center text-white btn-in rounded-lg"
+                  type="text"
+                  name="nickname"
+                  value={user.nickname}
+                  onChange={handleInputChange}
+                />
+              </label>
+              {errors.nickname && (
+                <p className="error-message">{errors.nickname}</p>
+              )}
+
+              <label>
+                Mail:
+                <input
+                  text-center
+                  text-white
+                  btn-in
+                  rounded-lg
+                  type="email"
+                  name="mail"
+                  value={user.mail}
+                  onChange={handleInputChange}
+                  className={`text-center text-white btn-in rounded-lg ${
+                    errors.email && "error-input"
+                  }`}
+                />
+              </label>
+              {errors.email && <p className="error-message">{errors.email}</p>}
+
+              <label>
+                Birthdate:
+                <input
+                  className="text-center text-white btn-in rounded-lg"
+                  type="date"
+                  name="birthdate"
+                  value={user.birthdate}
+                  onChange={handleInputChange}
+                />
+              </label>
+              {errors.birthdate && (
+                <p className="error-message">{errors.birthdate}</p>
+              )}
+
+              <label>
+                Password:
+                <input
+                  type="password"
+                  name="password"
+                  value={user.password}
+                  onChange={handleInputChange}
+                  className={`text-center text-white btn-in rounded-lg ${
+                    errors.password && "error-input"
+                  }`}
+                />
+                {errors.password && (
+                  <p className="error-message">{errors.password}</p>
+                )}
+              </label>
+
+              <label>
+                Confirm Password:
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  value={user.confirmPassword}
+                  onChange={handleInputChange}
+                  className={`text-center text-white btn-in rounded-lg ${
+                    errors.confirmPassword && "error-input"
+                  }`}
+                />
+              </label>
+              {errors.confirmPassword && (
+                <p className="error-message">{errors.confirmPassword}</p>
+              )}
+
+              <button className="btn rounded-lg inline-block" type="submit">
+                <div className="btn-in rounded-lg">Signup</div>
+              </button>
+              {showSignupPopup && (
+                <Popup
+                  onClose={() => setShowSignupPopup(false)}
+                  onConfirm={() => navigate("/login")}
+                >
+                  <p>Your account has been successfully created</p>
+                </Popup>
+              )}
+            </form>
+            <p className="m-4">Already have an account? </p>
+            <Link to="/login" className="btn rounded-lg inline-block">
+              <div className="btn-in rounded-lg"> Login here</div>
             </Link>
-          </p>
+          </div>
         </div>
       </div>
     </>

@@ -3,6 +3,7 @@ import { GameContext } from "../../../context/GameContext";
 
 function AddLevel() {
   const { addExperience } = useContext(GameContext);
+  const [level, setLevel] = useState("");
   const [xpQuantity, setXpQuantity] = useState("");
   const [formVisible, setFormVisible] = useState(false);
 
@@ -10,8 +11,10 @@ function AddLevel() {
     e.preventDefault();
     try {
       await addExperience({
+        level,
         xp_quantity: xpQuantity,
       });
+      setLevel("");
       setXpQuantity("");
     } catch (error) {
       console.error("Error adding experience:", error);
@@ -31,6 +34,21 @@ function AddLevel() {
       {formVisible && (
         <form className="btn-in rounded-lg" onSubmit={handleAdd}>
           <div className="relative flex items-center max-w-[16rem]">
+            <label
+              htmlFor="level-input"
+              className="absolute left-3 -top-3 -z-1 text-xs text-gray-400 dark:text-gray-500"
+            >
+              Niveau
+            </label>
+            <input
+              type="number"
+              id="level-input"
+              value={level}
+              onChange={(e) => setLevel(e.target.value)}
+              className="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="1"
+              required
+            />
             <button
               type="button"
               id="decrement-button"

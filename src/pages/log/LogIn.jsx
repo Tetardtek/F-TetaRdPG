@@ -55,46 +55,58 @@ export default function LogIn() {
   return (
     <>
       <NavBar />
-      <div className="auth-form">
-        <h2>Login</h2>
-        <form onSubmit={handleLogin} className="form-container">
-          <label>
-            Mail:
-            <input
-              type="email"
-              name="mail"
-              value={credentials.mail}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Password:
-            <input
-              type="password"
-              name="password"
-              value={credentials.password}
-              onChange={handleInputChange}
-            />
-          </label>
-          <button type="submit">Login</button>
-        </form>
-        <p>
-          Don't have an account?
-          <Link to="/register" className="signup-link">
-            Signup here
-          </Link>
-        </p>
-        <p>
-          <Link to="/forgot-password" className="forgot-password-link">
-            Forgot your password?
-          </Link>
-        </p>
-        {loginError && <p className="error-message">{loginError}</p>}
-        {showLoginPopup && (
-          <Popup onClose={handleCloseLoginPopup} confirmButtonText="Close">
-            <p>Login successful! Welcome back ✔</p>
-          </Popup>
-        )}
+      <div className="flex justify-center items-center text-center">
+        <div className="btn mt-8 rounded-lg justify-center items-center inline-block">
+          <div className="auth-form btn-in rounded-lg">
+            <h2 className="text-xl">Login</h2>
+            <form
+              onSubmit={handleLogin}
+              className="form-container flex flex-col gap-4"
+            >
+              <label>
+                Mail:
+                <input
+                  className="text-center text-white btn-in rounded-lg"
+                  type="email"
+                  name="mail"
+                  value={credentials.mail}
+                  onChange={handleInputChange}
+                />
+              </label>
+              <label>
+                Password:
+                <input
+                  className="text-center text-white btn-in rounded-lg"
+                  type="password"
+                  name="password"
+                  value={credentials.password}
+                  onChange={handleInputChange}
+                />
+              </label>
+              <button className="btn rounded-lg inline-block" type="submit">
+                <div className="btn-in rounded-lg">Login</div>
+              </button>
+            </form>
+            <p className="m-4">Don't have an account? &nbsp;</p>
+            <Link to="/register" className="btn rounded-lg inline-block">
+              <div className="btn-in rounded-lg">Signup here</div>
+            </Link>
+            <p>
+              <Link
+                to="/forgot-password"
+                className="btn rounded-lg inline-block"
+              >
+                <div className="btn-in rounded-lg">Forgot your password?</div>
+              </Link>
+            </p>
+            {loginError && <p className="error-message">{loginError}</p>}
+            {showLoginPopup && (
+              <Popup onClose={handleCloseLoginPopup} confirmButtonText="Close">
+                <p>Login successful! Welcome back ✔</p>
+              </Popup>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );

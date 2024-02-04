@@ -15,7 +15,7 @@ function Player() {
 
   useEffect(() => {
     if (!player) {
-      navigate("/create-player");
+      navigate("/game/create-player");
     }
   }, [player, navigate]);
 
@@ -24,7 +24,7 @@ function Player() {
   }
 
   return (
-    <div className="btn-in text-xl">
+    <div className="btn-in rounded-lg text-xl">
       <p>ID Joueur: {player.id}</p>
       <p>Nom: {player.nickname}</p>
       <p>Type: {type ? type.name : "Unknow"}</p>
