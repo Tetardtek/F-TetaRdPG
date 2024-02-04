@@ -71,110 +71,117 @@ function Main() {
     setShowPopup(false);
   };
   if (authLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="min-h-screen btn-in text-white p-0 m-0">Loading...</div>
+    );
   }
 
   return (
     <>
-      <Routes>
-        <Route
-          path="/settings"
-          element={
-            <PrivateRoute
-              element={<Settings />}
-              requiresAuth
-              allowedRoles={["1", "2", "3"]}
-            />
-          }
-        />
-        <Route
-          path="/admin"
-          element={
-            <PrivateRoute
-              element={<HomeAdmin />}
-              requiresAuth
-              allowedRoles={["2", "3"]}
-            />
-          }
-        />
-        <Route
-          path="/admin/users-roles"
-          element={
-            <PrivateRoute
-              element={<UsersRoles />}
-              requiresAuth
-              allowedRoles={["3"]}
-            />
-          }
-        />
-        <Route
-          path="/admin/types-players"
-          element={
-            <PrivateRoute
-              element={<TypesPlayers />}
-              requiresAuth
-              allowedRoles={["2", "3"]}
-            />
-          }
-        />
-        <Route
-          path="/admin/monsters-family"
-          element={
-            <PrivateRoute
-              element={<MonstersFamily />}
-              requiresAuth
-              allowedRoles={["2", "3"]}
-            />
-          }
-        />
-        <Route
-          path="/admin/leveling"
-          element={
-            <PrivateRoute
-              element={<Leveling />}
-              requiresAuth
-              allowedRoles={["2", "3"]}
-            />
-          }
-        />
-        <Route
-          path="/game/create-player"
-          element={
-            <PrivateRoute
-              element={<CreatePlayer />}
-              requiresAuth
-              allowedRoles={["1", "2", "3"]}
-            />
-          }
-        />
-        <Route
-          path="/game/begin"
-          element={
-            <PrivateRoute
-              element={<Game />}
-              requiresAuth
-              allowedRoles={["1", "2", "3"]}
-            />
-          }
-        />
-        <Route path="/login" element={user ? <Navigate to="/" /> : <LogIn />} />
-        <Route
-          path="/register"
-          element={user ? <Navigate to="/" /> : <Register />}
-        />
-        <Route
-          path="/forgot-password"
-          element={user ? <Navigate to="/" /> : <ForgotPassword />}
-        />
-        <Route path="/reset-password/:token" element={<ResetPassword />} />
-        <Route path="/" element={<App />} />
-      </Routes>
-      {showPopup && (
-        <Popup onClose={closePopup} confirmButtonText="Fermer">
-          <p>Successful login! Welcome to our website!</p>
-        </Popup>
-      )}
-      <BackTop />
+      <div className="min-h-screen btn-in text-white p-0 m-0">
+        <Routes>
+          <Route
+            path="/settings"
+            element={
+              <PrivateRoute
+                element={<Settings />}
+                requiresAuth
+                allowedRoles={["1", "2", "3"]}
+              />
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <PrivateRoute
+                element={<HomeAdmin />}
+                requiresAuth
+                allowedRoles={["2", "3"]}
+              />
+            }
+          />
+          <Route
+            path="/admin/users-roles"
+            element={
+              <PrivateRoute
+                element={<UsersRoles />}
+                requiresAuth
+                allowedRoles={["3"]}
+              />
+            }
+          />
+          <Route
+            path="/admin/types-players"
+            element={
+              <PrivateRoute
+                element={<TypesPlayers />}
+                requiresAuth
+                allowedRoles={["2", "3"]}
+              />
+            }
+          />
+          <Route
+            path="/admin/monsters-family"
+            element={
+              <PrivateRoute
+                element={<MonstersFamily />}
+                requiresAuth
+                allowedRoles={["2", "3"]}
+              />
+            }
+          />
+          <Route
+            path="/admin/leveling"
+            element={
+              <PrivateRoute
+                element={<Leveling />}
+                requiresAuth
+                allowedRoles={["2", "3"]}
+              />
+            }
+          />
+          <Route
+            path="/game/create-player"
+            element={
+              <PrivateRoute
+                element={<CreatePlayer />}
+                requiresAuth
+                allowedRoles={["1", "2", "3"]}
+              />
+            }
+          />
+          <Route
+            path="/game/begin"
+            element={
+              <PrivateRoute
+                element={<Game />}
+                requiresAuth
+                allowedRoles={["1", "2", "3"]}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={user ? <Navigate to="/" /> : <LogIn />}
+          />
+          <Route
+            path="/register"
+            element={user ? <Navigate to="/" /> : <Register />}
+          />
+          <Route
+            path="/forgot-password"
+            element={user ? <Navigate to="/" /> : <ForgotPassword />}
+          />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
+          <Route path="/" element={<App />} />
+        </Routes>
+        {showPopup && (
+          <Popup onClose={closePopup} confirmButtonText="Fermer">
+            <p>Successful login! Welcome to our website!</p>
+          </Popup>
+        )}
+        <BackTop />
+      </div>
     </>
   );
 }

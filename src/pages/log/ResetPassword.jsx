@@ -69,37 +69,44 @@ function ResetPassword() {
   };
 
   return (
-    <div className="page-container">
-      <div className="auth-form">
-        <h2>Reset Password</h2>
-        {error && <p className="error-message">{error}</p>}
-        {success && <p>{success}</p>}
-        <form onSubmit={handleResetPassword} className="form-container">
-          <label>
-            New Password:
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Confirm New Password:
-            <input
-              type="password"
-              name="confirmPassword"
-              value={confirmPassword}
-              onChange={handleInputChange}
-            />
-          </label>
-          <button type="submit">Reset Password</button>
-        </form>
-        {showPopup && (
-          <Popup onClose={handleClosePopup}>
-            <p>{success}</p>
-          </Popup>
-        )}
+    <div className="flex justify-center items-center text-center">
+      <div className="page-container btn mt-8 rounded-lg justify-center items-center inline-block">
+        <div className="auth-form btn-in rounded-lg">
+          <h2 className="text-xl">Reset Password</h2>
+          {error && <p className="error-message">{error}</p>}
+          {success && <p>{success}</p>}
+          <form
+            onSubmit={handleResetPassword}
+            className="form-container flex flex-col gap-4"
+          >
+            <label>
+              New Password:
+              <input
+                className="text-center text-white btn-in rounded-lg"
+                type="password"
+                name="password"
+                value={password}
+                onChange={handleInputChange}
+              />
+            </label>
+            <label>
+              Confirm New Password:
+              <input
+                className="text-center text-white btn-in rounded-lg"
+                type="password"
+                name="confirmPassword"
+                value={confirmPassword}
+                onChange={handleInputChange}
+              />
+            </label>
+            <button type="submit">Reset Password</button>
+          </form>
+          {showPopup && (
+            <Popup onClose={handleClosePopup}>
+              <p>{success}</p>
+            </Popup>
+          )}
+        </div>
       </div>
     </div>
   );

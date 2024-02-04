@@ -5,11 +5,13 @@ import { GameContext } from "../../../context/GameContext";
 function EditLevel({ experience }) {
   const { editExperience, deleteExperience } = useContext(GameContext);
 
+  const [level, setLevel] = useState(experience.level);
   const [xpQuantity, setXpQuantity] = useState(experience.xp_quantity);
   const [formVisible, setFormVisible] = useState(false);
 
   const handleEdit = async () => {
     await editExperience(experience.id, {
+      level,
       xp_quantity: xpQuantity,
     });
     window.location.reload();
@@ -39,6 +41,21 @@ function EditLevel({ experience }) {
       {formVisible && (
         <form className="" onSubmit={handleEdit}>
           <div className="relative flex items-center max-w-[8rem]">
+            <label
+              htmlFor="level-input"
+              className="absolute left-3 -top-3 -z-1 text-xs text-gray-400 dark:text-gray-500"
+            >
+              Niveau
+            </label>
+            <input
+              type="number"
+              id="level-input"
+              value={level}
+              onChange={(e) => setLevel(e.target.value)}
+              className="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="1"
+              required
+            />
             <button
               type="button"
               id="decrement-button"
@@ -105,6 +122,7 @@ function EditLevel({ experience }) {
 EditLevel.propTypes = {
   experience: PropTypes.shape({
     id: PropTypes.number,
+    level: PropTypes.number,
     xp_quantity: PropTypes.number,
   }).isRequired,
 };

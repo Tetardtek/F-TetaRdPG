@@ -152,133 +152,156 @@ function Settings() {
   return (
     <>
       <NavBar />
-      <div className="settings-container">
-        <h2>Settings</h2>
-        <form className="settings-list-container" onSubmit={handleSubmit}>
-          <label
-            className={`settings-label ${
-              errors.firstname ? "error-input" : ""
-            }`}
-          >
-            First Name:
-            <input
-              type="text"
-              name="firstname"
-              value={formData.firstname}
-              onChange={handleChange}
-            />
-          </label>
-          {errors.firstname && (
-            <p className="error-message">{errors.firstname}</p>
-          )}
+      <div className="flex justify-center items-center text-center">
+        <div className="page-container btn mt-8 rounded-lg justify-center items-center inline-block">
+          <div className="auth-form btn-in rounded-lg">
+            <h2 className="text-xl">Settings</h2>
+            <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+              <label
+                className={`settings-label ${
+                  errors.firstname ? "error-input" : ""
+                }`}
+              >
+                First Name:
+                <input
+                  className="text-center text-white btn-in rounded-lg"
+                  type="text"
+                  name="firstname"
+                  value={formData.firstname}
+                  onChange={handleChange}
+                />
+              </label>
+              {errors.firstname && (
+                <p className="error-message">{errors.firstname}</p>
+              )}
 
-          <label
-            className={`settings-label ${errors.lastname ? "error-input" : ""}`}
-          >
-            Last Name:
-            <input
-              type="text"
-              name="lastname"
-              value={formData.lastname}
-              onChange={handleChange}
-            />
-          </label>
-          {errors.lastname && (
-            <p className="error-message">{errors.lastname}</p>
-          )}
+              <label
+                className={`settings-label ${
+                  errors.lastname ? "error-input" : ""
+                }`}
+              >
+                Last Name:
+                <input
+                  className="text-center text-white btn-in rounded-lg"
+                  type="text"
+                  name="lastname"
+                  value={formData.lastname}
+                  onChange={handleChange}
+                />
+              </label>
+              {errors.lastname && (
+                <p className="error-message">{errors.lastname}</p>
+              )}
 
-          <label
-            className={`settings-label ${errors.nickname ? "error-input" : ""}`}
-          >
-            Nickname:
-            <input
-              type="text"
-              name="nickname"
-              value={formData.nickname}
-              onChange={handleChange}
-            />
-          </label>
-          {errors.nickname && (
-            <p className="error-message">{errors.nickname}</p>
-          )}
+              <label
+                className={`settings-label ${
+                  errors.nickname ? "error-input" : ""
+                }`}
+              >
+                Nickname:
+                <input
+                  className="text-center text-white btn-in rounded-lg"
+                  type="text"
+                  name="nickname"
+                  value={formData.nickname}
+                  onChange={handleChange}
+                />
+              </label>
+              {errors.nickname && (
+                <p className="error-message">{errors.nickname}</p>
+              )}
 
-          <label
-            className={`settings-label ${
-              errors.currentPassword ? "error-input" : ""
-            }`}
-          >
-            Current Password:
-            <input
-              type="password"
-              name="currentPassword"
-              value={formData.currentPassword}
-              onChange={handleChange}
-            />
-          </label>
-          {errors.currentPassword && (
-            <p className="error-message">{errors.currentPassword}</p>
-          )}
+              <label
+                className={`settings-label ${
+                  errors.currentPassword ? "error-input" : ""
+                }`}
+              >
+                Current Password:
+                <input
+                  className="text-center text-white btn-in rounded-lg"
+                  type="password"
+                  name="currentPassword"
+                  value={formData.currentPassword}
+                  onChange={handleChange}
+                />
+              </label>
+              {errors.currentPassword && (
+                <p className="error-message">{errors.currentPassword}</p>
+              )}
 
-          <label
-            className={`settings-label ${
-              errors.newPassword ? "error-input" : ""
-            }`}
-          >
-            New Password:
-            <input
-              type="password"
-              name="newPassword"
-              value={formData.newPassword}
-              onChange={handleChange}
-            />
-          </label>
+              <label
+                className={`settings-label ${
+                  errors.newPassword ? "error-input" : ""
+                }`}
+              >
+                New Password:
+                <input
+                  className="text-center text-white btn-in rounded-lg"
+                  type="password"
+                  name="newPassword"
+                  value={formData.newPassword}
+                  onChange={handleChange}
+                />
+              </label>
 
-          <label
-            className={`settings-label ${
-              errors.confirmNewPassword ? "error-input" : ""
-            }`}
-          >
-            Confirm New Password:
-            <input
-              type="password"
-              name="confirmNewPassword"
-              value={formData.confirmNewPassword}
-              onChange={handleChange}
-            />
-          </label>
-          {errors.newPassword && (
-            <p className="error-message">{errors.newPassword}</p>
-          )}
-          {errors.confirmNewPassword && (
-            <p className="error-message">{errors.confirmNewPassword}</p>
-          )}
+              <label
+                className={`settings-label ${
+                  errors.confirmNewPassword ? "error-input" : ""
+                }`}
+              >
+                Confirm New Password:
+                <input
+                  className="text-center text-white btn-in rounded-lg"
+                  type="password"
+                  name="confirmNewPassword"
+                  value={formData.confirmNewPassword}
+                  onChange={handleChange}
+                />
+              </label>
+              {errors.newPassword && (
+                <p className="error-message">{errors.newPassword}</p>
+              )}
+              {errors.confirmNewPassword && (
+                <p className="error-message">{errors.confirmNewPassword}</p>
+              )}
 
-          <button type="submit">Save Changes</button>
-          <button
-            type="button"
-            className="delete-button"
-            onClick={handleDeleteAccount}
-          >
-            Delete Account
-          </button>
+              <button className="btn rounded-lg inline-block" type="submit">
+                <div className="btn-in rounded-lg">Save Changes</div>
+              </button>
+              <button
+                type="button"
+                className="btn rounded-lg inline-block"
+                onClick={handleDeleteAccount}
+              >
+                <div className="btn-in rounded-lg">Delete Account</div>
+              </button>
 
-          {errors.general && <p className="error-message">{errors.general}</p>}
-          {success && <p>{success}</p>}
+              {errors.general && (
+                <p className="error-message">{errors.general}</p>
+              )}
+              {success && <p>{success}</p>}
 
-          {showDeletePopup && (
-            <Popup onClose={handleCloseDeletePopup} confirmButtonText="Close">
-              <p>Your account has been deleted successfully</p>
-            </Popup>
-          )}
-        </form>
+              {showDeletePopup && (
+                <Popup
+                  onClose={handleCloseDeletePopup}
+                  confirmButtonText="Close"
+                >
+                  <p>Your account has been deleted successfully</p>
+                </Popup>
+              )}
+            </form>
 
-        {errors.general && <p className="error-message">{errors.general}</p>}
-        {success && <p>{success}</p>}
-        {showPopup && (
-          <Popup onClose={closePopup}>
-            <p>Password changed successfully!</p>
-          </Popup>
-        )}
+            {errors.general && (
+              <p className="error-message">{errors.general}</p>
+            )}
+            {success && <p>{success}</p>}
+            {showPopup && (
+              <Popup onClose={closePopup}>
+                <p>Password changed successfully!</p>
+              </Popup>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );

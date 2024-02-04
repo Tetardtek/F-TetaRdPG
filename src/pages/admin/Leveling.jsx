@@ -18,18 +18,20 @@ function Leveling() {
         <h1 className="text-white">Level</h1>
         <AddLevel /> <br />
         <div className="btn-in text-white grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-          {experiences.map((experience) => (
-            <div
-              className="btn-in rounded-lg auto p-4 border border-gray-300"
-              key={experience.id}
-            >
-              <p className="btn-in rounded-lg">
-                Level {experience.id}: <br />
-                {experience.xp_quantity} xp requis
-              </p>
-              <EditLevel experience={experience} />
-            </div>
-          ))}
+          {experiences
+            .sort((a, b) => a.level - b.level)
+            .map((experience) => (
+              <div
+                className="btn-in rounded-lg auto p-4 border border-gray-300"
+                key={experience.id}
+              >
+                <p className="btn-in rounded-lg">
+                  Level {experience.level}: <br />
+                  {experience.xp_quantity} xp requis
+                </p>
+                <EditLevel experience={experience} />
+              </div>
+            ))}
         </div>
       </div>
     </>

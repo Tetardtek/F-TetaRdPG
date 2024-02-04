@@ -28,7 +28,7 @@ function BackTop() {
   return (
     <button
       type="button"
-      className={`back-to-top-button ${isVisible ? "visible" : "hidden"}`}
+      className={`btn ${isVisible ? "visible" : "hidden"}`}
       onClick={scrollToTop}
     >
       ↑
